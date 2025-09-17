@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- TailwindCSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script <img src="https://drive.google.com/uc?export=view&id=1ofvhBKWkO2XucUlTERPrf_zAM8J5tzJB" alt="Cinematic Realty Media" class="h-8 w-auto select-none" />
     <script>
       tailwind.config = {
         theme: {
@@ -167,11 +167,23 @@
           z-index: 2;
       }
 
-      /* Gradient transition for About section */
-      .about-gradient-transition {
-          background: linear-gradient(to bottom, #F7F8FA 0%, #e2e8f0 20%, #334155 40%, #1e293b 60%, #0f172a 80%, #0f1117 100%);
-          height: 100px;
-      }
+/* Fade entre FAQ (claro) y About (oscuro) */
+#about{
+  position: relative;          /* necesario para el pseudo-elemento */
+}
+
+#about::before{
+  content:"";
+  position:absolute;
+  top:-100px;                  /* sube el gradiente sobre el inicio de About */
+  left:0; right:0;
+  height:100px;                /* alto del fade */
+  /* de transparente (gris FAQ) a negro About */
+  background: linear-gradient(to bottom, rgba(247,248,250,0), #0f1117);
+  pointer-events:none;
+  z-index:0;
+}
+
 
       /* Equipment section improvements */
       .benefit-card {
@@ -951,55 +963,52 @@
       </div>
     </section>
 
-    <!-- TRANSICIÓN GRADIENTE PARA ABOUT -->
-    <div class="about-gradient-transition"></div>
 
     <!-- FAQ CON FONDO NEGRO Y GRADIENTE -->
-    <section id="faq" class="bg-gray-50 text-slate-900">
-      <div class="dark-content">
-        <div class="mx-auto max-w-7xl px-5">
-          <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-white">FAQ</h2>
+ <!-- FAQ (fondo claro, texto oscuro) -->
+<section id="faq" class="py-20 bg-gray-50 text-slate-900">
+  <div class="mx-auto max-w-7xl px-5">
+    <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">FAQ</h2>
 
-          <div class="mt-8 grid gap-4 md:grid-cols-2">
-            <details class="rounded-2xl bg-white/10 backdrop-blur-sm p-6 ring-1 ring-white/20">
-              <summary class="cursor-pointer text-white/90 font-medium">
-                What types of properties do you film?
-              </summary>
-              <p class="mt-3 text-white/70">
-                Offices, apartments, single-family and multifamily homes, retail, industrial, hospitality, and new developments. We tailor the shot list to the property's use and follow all building rules and access requirements.
-              </p>
-            </details>
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <details class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
+        <summary class="cursor-pointer text-slate-900 font-medium">
+          What types of properties do you film?
+        </summary>
+        <p class="mt-3 text-slate-600">
+          Offices, apartments, single-family and multifamily homes, retail, industrial, hospitality, and new developments. We tailor the shot list to the property's use and follow all building rules and access requirements.
+        </p>
+      </details>
 
-            <details class="rounded-2xl bg-white/10 backdrop-blur-sm p-6 ring-1 ring-white/20">
-              <summary class="cursor-pointer text-white/90 font-medium">
-                How far in advance should I book?
-              </summary>
-              <p class="mt-3 text-white/70">
-                Ideally 5–7 days. For larger portfolios or multi-city travel, 7–10 days is best. Rush slots may be available—tell us your dates and we'll check availability.
-              </p>
-            </details>
+      <details class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
+        <summary class="cursor-pointer text-slate-900 font-medium">
+          How far in advance should I book?
+        </summary>
+        <p class="mt-3 text-slate-600">
+          Ideally 5–7 days. For larger portfolios or multi-city travel, 7–10 days is best. Rush slots may be available—tell us your dates and we'll check availability.
+        </p>
+      </details>
 
-            <details class="rounded-2xl bg-white/10 backdrop-blur-sm p-6 ring-1 ring-white/20">
-              <summary class="cursor-pointer text-white/90 font-medium">
-                How should I prepare the property?
-              </summary>
-              <p class="mt-3 text-white/70">
-                Tidy and declutter, turn on all lights, align blinds/curtains, hide personal items, secure pets, and confirm access/parking. We'll share a quick prep checklist when you schedule.
-              </p>
-            </details>
+      <details class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
+        <summary class="cursor-pointer text-slate-900 font-medium">
+          How should I prepare the property?
+        </summary>
+        <p class="mt-3 text-slate-600">
+          Tidy and declutter, turn on all lights, align blinds/curtains, hide personal items, secure pets, and confirm access/parking. We'll share a quick prep checklist when you schedule.
+        </p>
+      </details>
 
-            <details class="rounded-2xl bg-white/10 backdrop-blur-sm p-6 ring-1 ring-white/20">
-              <summary class="cursor-pointer text-white/90 font-medium">
-                How long does a typical session take?
-              </summary>
-              <p class="mt-3 text-white/70">
-                Usually 2–3 hours depending on square footage, access, and add-ons (photos, reels, 3D). We coordinate an efficient plan to minimize disruption.
-              </p>
-            </details>
-          </div>
-        </div>
-      </div>
-    </section>
+      <details class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
+        <summary class="cursor-pointer text-slate-900 font-medium">
+          How long does a typical session take?
+        </summary>
+        <p class="mt-3 text-slate-600">
+          Usually 2–3 hours depending on square footage, access, and add-ons (photos, reels, 3D). We coordinate an efficient plan to minimize disruption.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
 
     <!-- ABOUT CON FONDO NEGRO Y GRADIENTE -->
     <section id="about" class="dark-gradient-bg py-20">
