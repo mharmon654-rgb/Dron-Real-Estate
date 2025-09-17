@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- TailwindCSS CDN (fixed) -->
+    <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -27,20 +26,18 @@
                 soft: '#22e3ac1a'
               }
             },
-            boxShadow: {
-              soft: '0 10px 30px rgba(0,0,0,.35)'
-            },
+            boxShadow: { soft: '0 10px 30px rgba(0,0,0,.35)' },
             fontFamily: {
               display: ['Space Grotesk', 'system-ui', 'sans-serif'],
               sans: ['Inter', 'system-ui', 'sans-serif']
             }
           }
         }
-      }
+      };
     </script>
 
-    <!-- (Opcional) Preload del logo de Drive ya en modo directo -->
-    <link rel="preload" as="image" href="https://drive.google.com/uc?export=view&id=1ofvhBKWkO2XucUlTERPrf_zAM8J5tzJB">
+    <!-- (Opcional) Preload del logo local -->
+    <link rel="preload" as="image" href="/logo.png">
 
     <style>
       html, body { height: 100%; }
@@ -52,272 +49,38 @@
           position: relative;
           overflow: hidden;
       }
-      
       .hero-bg::before {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          top: 0; left: 0; right: 0; bottom: 0;
           background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80') center/cover;
-          opacity: 0.8;
-          z-index: 1;
+          opacity: 0.8; z-index: 1;
       }
-      
       .hero-bg::after {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          top: 0; left: 0; right: 0; bottom: 0;
           background: linear-gradient(to bottom, rgba(15, 17, 23, 0.3), rgba(15, 17, 23, 0.7));
           z-index: 2;
       }
-      
-      .hero-content {
-          position: relative;
-          z-index: 3;
-      }
-      
-      .floating-element {
-          animation: float 6s ease-in-out infinite;
-      }
-      
-      @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(2deg); }
-      }
-      
+      .hero-content { position: relative; z-index: 3; }
+      .floating-element { animation: float 6s ease-in-out infinite; }
+      @keyframes float { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-20px) rotate(2deg)} }
       .feature-card {
-          backdrop-filter: blur(10px);
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        transition: all .3s ease;
       }
-      
-      .feature-card:hover {
-          background: rgba(255, 255, 255, 0.2);
-          transform: translateY(-5px);
-      }
-      
-      .pulse-ring {
-          animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-      }
-      
-      @keyframes pulse-ring {
-          0% {
-              transform: scale(0.8);
-              opacity: 1;
-          }
-          100% {
-              transform: scale(2.5);
-              opacity: 0;
-          }
-      }
-      
+      .feature-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-5px); }
+      .pulse-ring { animation: pulse-ring 2s cubic-bezier(0.455,0.03,0.515,0.955) infinite; }
+      @keyframes pulse-ring { 0%{transform:scale(.8);opacity:1} 100%{transform:scale(2.5);opacity:0} }
       .tech-badge {
-          background: rgba(34, 227, 172, 0.1);
-          border: 1px solid rgba(34, 227, 172, 0.3);
-          color: #22e3ac;
-          backdrop-filter: blur(10px);
+        background: rgba(34,227,172,0.1);
+        border: 1px solid rgba(34,227,172,0.3);
+        color: #22e3ac;
+        backdrop-filter: blur(10px);
       }
-```
-
-
-      /* PORTFOLIO GRADIENT BACKGROUND */
-      .portfolio-gradient {
-          background: linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #1e3a8a 50%, #1e40af 75%, #2563eb 100%);
-          position: relative;
-          overflow: hidden;
-      }
-      
-      .portfolio-gradient::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(circle at 30% 20%, rgba(34, 227, 172, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-          z-index: 1;
-      }
-      
-      .portfolio-content {
-          position: relative;
-          z-index: 2;
-      }
-
-      /* DARK GRADIENT BACKGROUNDS */
-      .dark-gradient-bg {
-          background: linear-gradient(135deg, #0f1117 0%, #1a202c 25%, #2d3748 50%, #1a202c 75%, #0f1117 100%);
-          position: relative;
-          overflow: hidden;
-      }
-      
-      .dark-gradient-bg::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(to bottom, rgba(15, 17, 23, 0.8), rgba(15, 17, 23, 0.95));
-          z-index: 1;
-      }
-      
-      .dark-content {
-          position: relative;
-          z-index: 2;
-      }
-
-/* Fade entre FAQ (claro) y About (oscuro) */
-#about{
-  position: relative;          /* necesario para el pseudo-elemento */
-}
-
-#about::before{
-  content:"";
-  position:absolute;
-  top:-100px;                  /* sube el gradiente sobre el inicio de About */
-  left:0; right:0;
-  height:100px;                /* alto del fade */
-  /* de transparente (gris FAQ) a negro About */
-  background: linear-gradient(to bottom, rgba(247,248,250,0), #0f1117);
-  pointer-events:none;
-  z-index:0;
-}
-
-
-      /* Equipment section improvements */
-      .benefit-card {
-          backdrop-filter: blur(10px);
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          transform-origin: center;
-      }
-      
-      .benefit-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
-      }
-
-      .benefit-number {
-          background: linear-gradient(135deg, #3b82f6, #06b6d4);
-          color: white;
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 700;
-          font-size: 14px;
-          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-      }
-
-      .benefit-icon {
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
-          border: 1px solid rgba(59, 130, 246, 0.2);
-          width: 56px;
-          height: 56px;
-          border-radius: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      }
-
-      .floating-benefit {
-          animation: float-benefit 6s ease-in-out infinite;
-      }
-      
-      @keyframes float-benefit {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-      }
-
-      /* PRICING */
-      :root{
-        --p-bg:#0b1220;
-        --p-white:#ffffff;
-        --p-dark:#0f172a;
-        --p-muted:#64748b;
-        --p-line:#e5e7eb;
-        --primary:#2563eb;
-        --primary-dark:#1e40af;
-        --shadow:0 10px 30px rgba(2,6,23,.08);
-        --shadow-lg:0 18px 45px rgba(2,6,23,.14);
-      }
-      .pricing-block{background:#fff;padding:80px 0}
-      .pricing-wrap{max-width:1150px;margin:0 auto;padding:0 22px}
-      .pricing-head{text-align:center;margin-bottom:28px}
-      .pricing-head h2{
-        font-size:clamp(28px,3.2vw,42px); line-height:1.15;
-        color:var(--p-dark); font-weight:800; margin:0 0 8px;
-      }
-      .pricing-head p{color:#475569;max-width:760px;margin:0 auto}
-
-      .pricing-grid{
-        display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
-        align-items:stretch; margin-top:26px;
-      }
-      .pricing-card{
-        background:var(--p-white);
-        border-radius:20px;
-        padding:40px 34px;
-        text-align:center;
-        box-shadow:var(--shadow);
-        transition:all .25s ease;
-        position:relative;
-        border:1px solid var(--p-line);
-        display:flex;flex-direction:column;
-      }
-      .pricing-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg)}
-      .pricing-card.featured{
-        border:2px solid var(--primary);
-        transform:scale(1.03);
-      }
-      .pricing-card.featured:hover{transform:scale(1.03) translateY(-6px)}
-      .pricing-card.featured::before{
-        content:"Most Popular";
-        position:absolute; top:-12px; left:50%; transform:translateX(-50%);
-        background:var(--primary); color:#fff; border-radius:999px;
-        padding:8px 16px; font-size:.8rem; font-weight:700;
-        box-shadow:0 6px 16px rgba(37,99,235,.35);
-      }
-
-      .plan-name{font-size:1.08rem;font-weight:800;color:#0f172a;margin:4px 0 8px}
-      .plan-price{font-size:3rem;font-weight:900;color:var(--primary);margin:6px 0 16px}
-
-      .plan-features{list-style:none;padding:0;margin:18px 0 26px;text-align:left}
-      .plan-features li{
-        display:flex;gap:10px;align-items:flex-start;
-        padding:8px 0;color:#475569;
-      }
-      .plan-features li::before{
-        content:"✓"; color:var(--primary); font-weight:900; line-height:1.2;
-      }
-
-      .plan-cta{
-        background:var(--primary); color:#fff; text-decoration:none;
-        font-weight:800; display:inline-block; margin-top:auto;
-        padding:14px 26px; border-radius:999px; transition:all .2s ease;
-        border:0; cursor:pointer;
-      }
-      .plan-cta:hover{background:var(--primary-dark); transform:translateY(-2px)}
-      .plan-cta.secondary{background:#eef2ff;color:#1e3a8a}
-      .plan-cta.secondary:hover{background:#e0e7ff}
-
-      .pricing-foot{margin-top:32px;text-align:center;color:#475569}
-      .pricing-foot strong{color:#0f172a}
-
-      @media (max-width:960px){.pricing-grid{grid-template-columns:1fr; gap:18px}
-        .pricing-card.featured{transform:none}
-        .pricing-card.featured:hover{transform:translateY(-6px)}
-      }
-    </style>
   </head>
   <body class="bg-obsidian text-ink font-sans antialiased">
 
@@ -326,125 +89,132 @@
       <div class="mx-auto max-w-7xl px-5">
         <div class="mt-5 mb-3 rounded-2xl glass bg-white/5 ring-1 ring-white/10">
           <div class="flex items-center justify-between px-4 py-3">
-          <a href="#home" class="flex items-center gap-3">
-          <img src="https://drive.google.com/file/d/1ofvhBKWkO2XucUlTERPrf_zAM8J5tzJB/view?usp=sharing" alt="Cinematic Realty Media" class="h-8 w-auto select-none" />
-          <span class="font-display text-lg tracking-tight">Cinematic Realty Media</span>
-          </a> 
 
-            <nav class="hidden md:flex items-center gap-8 text-sm text-black/80">
+            <a href="#home" class="flex items-center gap-3">
+              <!-- Logo local -->
+              <img src="/logo.png" alt="Cinematic Realty Media logo" class="h-8 w-auto select-none" />
+              <!-- Marca en negro y negrita -->
+              <span class="font-display text-lg font-bold tracking-tight text-black">Cinematic Realty Media</span>
+            </a>
+
+            <!-- Menú con más peso y contraste -->
+            <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-white/90">
               <a href="#work" class="hover:text-white">Portfolio</a>
               <a href="#services" class="hover:text-white">Services</a>
               <a href="#avata" class="hover:text-white">Benefits</a>
               <a href="#pricing" class="hover:text-white">Pricing</a>
               <a href="#faq" class="hover:text-white">FAQ</a>
               <a href="#about" class="hover:text-white">About</a>
-              <a href="#book" class="ml-2 inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-medium text-black hover:shadow-soft">Book a flight</a>
+              <a href="#book" class="ml-2 inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-bold text-black hover:shadow-soft">Book a flight</a>
             </nav>
+
             <button id="menuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg ring-1 ring-white/20" aria-label="Open menu">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-white/80"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-white/80">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
             </button>
           </div>
+
           <div id="mobileMenu" class="hidden border-t border-white/10 px-4 py-3 md:hidden">
-            <div class="grid gap-3 text-sm text-white/80">
+            <div class="grid gap-3 text-sm text-white/90 font-semibold">
               <a href="#work" class="hover:text-white">Portfolio</a>
               <a href="#services" class="hover:text-white">Services</a>
               <a href="#avata" class="hover:text-white">Avata</a>
               <a href="#pricing" class="hover:text-white">Pricing</a>
               <a href="#faq" class="hover:text-white">FAQ</a>
               <a href="#about" class="hover:text-white">About</a>
-              <a href="#book" class="inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-medium text-black">Book a flight</a>
+              <a href="#book" class="inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-bold text-black">Book a flight</a>
             </div>
           </div>
-          </div>
+
         </div>
       </div>
     </header>
 
-    <!-- HERO SECTION (sin cambios) -->
+    <!-- HERO SECTION -->
     <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
-        <div class="hero-content w-full">
-            <div class="mx-auto max-w-7xl px-5">
-                <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-                    
-                    <!-- Left Column: Content -->
-                    <div class="space-y-8">
-                        <div class="space-y-6">
-                            <!-- Badge -->
-                            <div class="inline-flex items-center gap-2 tech-badge rounded-full px-4 py-2 text-sm font-medium">
-                                <div class="relative">
-                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
-                                    <div class="pulse-ring absolute inset-0 w-2 h-2 bg-accent rounded-full"></div>
-                                </div>
-                                Professional FPV Services
-                            </div>
-                            
-                            <!-- Main Title -->
-                            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-                                <span class="block">REAL ESTATE</span>
-                                <span class="block text-accent">VIDEOS</span>
-                            </h1>
-                            
-                            <!-- Subtitle -->
-                            <p class="text-xl text-white/80 max-w-2xl leading-relaxed">
-                                FPV cinematic walkthroughs inside and out, aerials, photos, reels, and 3D — professionally edited and delivered in 48–72 hours.
-                            </p>
-                        </div>
-                        
-                        <!-- CTA Buttons -->
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#book" class="inline-flex items-center justify-center rounded-xl bg-accent px-8 py-4 text-lg font-semibold text-black hover:shadow-soft transition-all duration-300 hover:scale-105">
-                                Book a Flight
-                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                </svg>
-                            </a>
-                            <a href="#work" class="inline-flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm px-8 py-4 text-lg font-medium text-white hover:bg-white/20 transition-all duration-300">
-                                View Portfolio
-                            </a>
-                        </div>
-                        
-                        <!-- Feature Cards -->
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
-                            <div class="feature-card rounded-xl p-4 text-center">
-                                <div class="text-accent font-semibold text-sm">48–72h</div>
-                                <div class="text-white/80 text-xs mt-1">Fast Delivery</div>
-                            </div>
-                            <div class="feature-card rounded-xl p-4 text-center">
-                                <div class="text-accent font-semibold text-sm">Licensed</div>
-                                <div class="text-white/80 text-xs mt-1">Pilots</div>
-                            </div>
-                            <div class="feature-card rounded-xl p-4 text-center">
-                                <div class="text-accent font-semibold text-sm">Insured</div>
-                                <div class="text-white/80 text-xs mt-1">& Bonded</div>
-                            </div>
-                            <div class="feature-card rounded-xl p-4 text-center">
-                                <div class="text-accent font-semibold text-sm">Multi-City</div>
-                                <div class="text-white/80 text-xs mt-1">Coverage</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Column: Visual -->
-                    <div class="relative">
-                        <!-- Main drone image with floating animation -->
-                        <div class="relative floating-element">
-                            <img 
-                                src="https://se-cdn.djiits.com/tpc/uploads/spu/cover/daf2c8fd679eb886c0ba45a1d015a5fc@xlarge.png" 
-                                alt="DJI Avata FPV drone" 
-                                class="w-full max-w-lg mx-auto drop-shadow-2xl"
-                            />
-                            
-                            <!-- Glowing ring effect -->
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="w-96 h-96 rounded-full border border-accent/20 absolute animate-spin" style="animation-duration: 20s;"></div>
-                                <div class="w-80 h-80 rounded-full border border-accent/10 absolute animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="hero-content w-full">
+        <div class="mx-auto max-w-7xl px-5">
+          <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+
+            <!-- Left Column: Content -->
+            <div class="space-y-8">
+              <div class="space-y-6">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 tech-badge rounded-full px-4 py-2 text-sm font-medium">
+                  <div class="relative">
+                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                    <div class="pulse-ring absolute inset-0 w-2 h-2 bg-accent rounded-full"></div>
+                  </div>
+                  Professional FPV Services
                 </div>
+
+                <!-- Main Title -->
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+                  <span class="block">REAL ESTATE</span>
+                  <span class="block text-accent">VIDEOS</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl text-white/80 max-w-2xl leading-relaxed">
+                  FPV cinematic walkthroughs inside and out, aerials, photos, reels, and 3D — professionally edited and delivered in 48–72 hours.
+                </p>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#book" class="inline-flex items-center justify-center rounded-xl bg-accent px-8 py-4 text-lg font-semibold text-black hover:shadow-soft transition-all duration-300 hover:scale-105">
+                  Book a Flight
+                  <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+                <a href="#work" class="inline-flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm px-8 py-4 text-lg font-medium text-white hover:bg-white/20 transition-all duration-300">
+                  View Portfolio
+                </a>
+              </div>
+
+              <!-- Feature Cards -->
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+                <div class="feature-card rounded-xl p-4 text-center">
+                  <div class="text-accent font-semibold text-sm">48–72h</div>
+                  <div class="text-white/80 text-xs mt-1">Fast Delivery</div>
+                </div>
+                <div class="feature-card rounded-xl p-4 text-center">
+                  <div class="text-accent font-semibold text-sm">Licensed</div>
+                  <div class="text-white/80 text-xs mt-1">Pilots</div>
+                </div>
+                <div class="feature-card rounded-xl p-4 text-center">
+                  <div class="text-accent font-semibold text-sm">Insured</div>
+                  <div class="text-white/80 text-xs mt-1">& Bonded</div>
+                </div>
+                <div class="feature-card rounded-xl p-4 text-center">
+                  <div class="text-accent font-semibold text-sm">Multi-City</div>
+                  <div class="text-white/80 text-xs mt-1">Coverage</div>
+                </div>
+              </div>
             </div>
+
+            <!-- Right Column: Visual -->
+            <div class="relative">
+              <div class="relative floating-element">
+                <img
+                  src="https://se-cdn.djiits.com/tpc/uploads/spu/cover/daf2c8fd679eb886c0ba45a1d015a5fc@xlarge.png"
+                  alt="DJI Avata FPV drone"
+                  class="w-full max-w-lg mx-auto drop-shadow-2xl"
+                />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-96 h-96 rounded-full border border-accent/20 absolute animate-spin" style="animation-duration: 20s;"></div>
+                  <div class="w-80 h-80 rounded-full border border-accent/10 absolute animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </div>
     </section>
+
 
     <!-- PROCESS -->
     <section class="py-20 bg-[#F7F8FA] text-slate-900">
