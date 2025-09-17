@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- TailwindCSS CDN -->
-    <script <img src="https://drive.google.com/uc?export=view&id=1ofvhBKWkO2XucUlTERPrf_zAM8J5tzJB" alt="Cinematic Realty Media" class="h-8 w-auto select-none" />
+    <!-- TailwindCSS CDN (fixed) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -37,6 +38,10 @@
         }
       }
     </script>
+
+    <!-- (Opcional) Preload del logo de Drive ya en modo directo -->
+    <link rel="preload" as="image" href="https://drive.google.com/uc?export=view&id=1ofvhBKWkO2XucUlTERPrf_zAM8J5tzJB">
+
     <style>
       html, body { height: 100%; }
       .glass { backdrop-filter: saturate(140%) blur(10px); }
@@ -118,6 +123,8 @@
           color: #22e3ac;
           backdrop-filter: blur(10px);
       }
+```
+
 
       /* PORTFOLIO GRADIENT BACKGROUND */
       .portfolio-gradient {
