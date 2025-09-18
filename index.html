@@ -136,38 +136,65 @@
   <body class="bg-obsidian text-ink font-sans antialiased">
 
     <!-- NAV -->
+<!-- NAV -->
 <header class="fixed inset-x-0 top-0 z-50">
   <div class="mx-auto max-w-7xl px-5">
     <div class="mt-5 mb-3 rounded-2xl glass bg-white/5 ring-1 ring-white/10">
       <div class="flex items-center justify-between px-4 py-3">
+
+        <!-- Logo + Marca -->
         <a href="#home" class="flex items-center gap-3">
-        <img
-          src="/assets/logo1.png?v=3"
-          alt="Cinematic Realty Media logo"
-          class="h-12 md:h-14 w-auto shrink-0 object-contain select-none"
-          loading="eager"
+          <img
+            src="/assets/logo1.png"
+            alt="Cinematic Realty Media logo"
+            class="h-10 md:h-12 w-auto"
           />
+          <span class="font-display text-lg md:text-xl font-bold tracking-tight text-black">
+            Cinematic Realty Media
+          </span>
         </a>
 
-        <!-- SOLO texto en negro (desktop) -->
+        <!-- Menú (desktop) -->
         <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-black">
-          <a href="#work"     class="hover:opacity-70">Portfolio</a>
+          <a href="#work" class="hover:opacity-70">Portfolio</a>
           <a href="#services" class="hover:opacity-70">Services</a>
-          <a href="#avata"    class="hover:opacity-70">Benefits</a>
-          <a href="#pricing"  class="hover:opacity-70">Pricing</a>
-          <a href="#faq"      class="hover:opacity-70">FAQ</a>
-          <a href="#about"    class="hover:opacity-70">About</a>
-          <a href="#book" class="ml-2 inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-bold text-black hover:shadow-soft">
+          <a href="#avata" class="hover:opacity-70">Benefits</a>
+          <a href="#pricing" class="hover:opacity-70">Pricing</a>
+          <a href="#faq" class="hover:opacity-70">FAQ</a>
+          <a href="#about" class="hover:opacity-70">About</a>
+          <a href="#book"
+             class="ml-2 inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-bold text-black hover:shadow-soft">
             Book a flight
           </a>
         </nav>
 
-        <button id="menuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg ring-1 ring-white/20" aria-label="Open menu">
+        <!-- Botón menú (mobile) -->
+        <button id="menuBtn"
+          class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg ring-1 ring-white/20"
+          aria-label="Open menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-white/80">
             <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
       </div>
+
+      <!-- Menú (mobile) -->
+      <div id="mobileMenu" class="hidden border-t border-white/10 px-4 py-3 md:hidden">
+        <div class="grid gap-3 text-sm text-white/90 font-semibold">
+          <a href="#work" class="hover:text-white">Portfolio</a>
+          <a href="#services" class="hover:text-white">Services</a>
+          <a href="#avata" class="hover:text-white">Avata</a>
+          <a href="#pricing" class="hover:text-white">Pricing</a>
+          <a href="#faq" class="hover:text-white">FAQ</a>
+          <a href="#about" class="hover:text-white">About</a>
+          <a href="#book" class="inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-bold text-black">
+            Book a flight
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
       <!-- (móvil lo dejamos como estaba; si luego quieres también negro, lo cambio) -->
       <div id="mobileMenu" class="hidden border-t border-white/10 px-4 py-3 md:hidden">
