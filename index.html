@@ -82,39 +82,37 @@
       }
       /* ===== GRADIENTES & FADES QUE FALTABAN ===== */
 
-/* Portfolio: azul más claro y agradable */
-.portfolio-gradient{
-  position: relative;
-  overflow: hidden;
-  /* azul claro, no tan oscuro */
-  background: linear-gradient(135deg, #5E8BFF 0%, #6DA0FF 35%, #7AA9FF 65%, #86B2FF 100%);
+/* === PORTFOLIO: azul sólido con fades arriba/abajo === */
+:root{
+  /* azul claro no tan oscuro; puedes ajustar si quieres */
+  --portfolio-blue:#6aa3ff; /* cercano a #60a5fa pero un pelín más suave */
 }
 
-/* Glows suaves dentro del portfolio */
-.portfolio-gradient::before{
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(600px 300px at 20% 15%, rgba(255,255,255,.18) 0%, transparent 60%),
-    radial-gradient(500px 260px at 80% 85%, rgba(255,255,255,.12) 0%, transparent 60%);
-  pointer-events:none;
-  z-index:1;
+.portfolio-solid{
+  position:relative;
+  background: var(--portfolio-blue);
+  overflow:hidden;           /* oculta los pseudo-elementos fuera del contenedor */
 }
-/* Fade superior e inferior para mezclar con secciones blancas/grises */
-.portfolio-gradient::after{
+
+/* Fade superior: de blanco -> transparente para “entrar” al azul sólido */
+.portfolio-solid::before{
   content:"";
-  position:absolute; inset:0;
-  /* gris claro de tus secciones (#F7F8FA) top & bottom, transparente al centro */
-  background:
-    linear-gradient(to bottom,
-      rgba(247,248,250,1) 0px,
-      rgba(247,248,250,0) 60px,
-      rgba(247,248,250,0) calc(100% - 60px),
-      rgba(247,248,250,1) 100%);
-  pointer-events:none;
-  z-index:2;
+  position:absolute; left:0; right:0; top:-120px; height:160px;
+  background: linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 80%);
+  pointer-events:none; z-index:1;
 }
-.portfolio-content{ position: relative; z-index: 3; }
+
+/* Fade inferior: de blanco -> transparente invertido para “salir” al blanco */
+.portfolio-solid::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-120px; height:160px;
+  background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0) 80%);
+  pointer-events:none; z-index:1;
+}
+
+/* Asegura que el contenido quede encima de los fades */
+.portfolio-content{ position:relative; z-index:2; }
+
 
 /* Fondo oscuro reutilizable (About / Book) */
 .dark-gradient-bg{
@@ -143,7 +141,7 @@
     <div class="mt-5 mb-3 rounded-2xl glass bg-white/5 ring-1 ring-white/10">
       <div class="flex items-center justify-between px-4 py-3">
         <a href="#home" class="flex items-center gap-3">
-          <img src="/assets/logo.png" alt="Cinematic Realty Media logo" class="h-8 w-auto select-none" />
+          <img src="/assets/logo1.png" alt="Cinematic Realty Media logo" class="h-8 w-auto select-none" />
           <span class="font-display text-lg font-bold tracking-tight text-black">Cinematic Realty Media</span>
         </a>
 
@@ -561,16 +559,20 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO CON GRADIENTE MEJORADO -->
-  <section id="work" class="portfolio-gradient py-20">
+<!-- PORTFOLIO: azul sólido + fades arriba/abajo -->
+<section id="work" class="portfolio-solid py-20">
   <div class="portfolio-content">
     <div class="mx-auto max-w-7xl px-5">
       <div class="mb-8 flex items-end justify-between gap-6">
         <div>
           <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-white">Portfolio</h2>
-          <p class="mt-2 max-w-2xl text-white/80">Selected projects — tap to view. Replace thumbnails and links with your own video URLs.</p>
+          <p class="mt-2 max-w-2xl text-white/80">
+            Selected projects — tap to view. Replace thumbnails and links with your own video URLs.
+          </p>
         </div>
-        <a href="#book" class="hidden md:inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-semibold text-black">Book a flight</a>
+        <a href="#book" class="hidden md:inline-flex items-center justify-center rounded-xl bg-accent px-4 py-2 font-semibold text-black">
+          Book a flight
+        </a>
       </div>
 
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -579,26 +581,31 @@
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
           <span class="absolute bottom-3 left-3 rounded-lg bg-white/10 px-2 py-1 text-xs text-white/90 ring-1 ring-white/15">Residential</span>
         </a>
+
         <a class="group relative aspect-video overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/20 hover:ring-accent/40 transition-all duration-300" href="#book">
           <div class="absolute inset-0 flex items-center justify-center text-white/70">Video Placeholder</div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
           <span class="absolute bottom-3 left-3 rounded-lg bg-white/10 px-2 py-1 text-xs text-white/90 ring-1 ring-white/15">Commercial</span>
         </a>
+
         <a class="group relative aspect-video overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/20 hover:ring-accent/40 transition-all duration-300" href="#book">
           <div class="absolute inset-0 flex items-center justify-center text-white/70">Video Placeholder</div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
           <span class="absolute bottom-3 left-3 rounded-lg bg-white/10 px-2 py-1 text-xs text-white/90 ring-1 ring-white/15">Luxury</span>
         </a>
+
         <a class="group relative aspect-video overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/20 hover:ring-accent/40 transition-all duration-300" href="#book">
           <div class="absolute inset-0 flex items-center justify-center text-white/70">Video Placeholder</div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
           <span class="absolute bottom-3 left-3 rounded-lg bg-white/10 px-2 py-1 text-xs text-white/90 ring-1 ring-white/15">Development</span>
         </a>
+
         <a class="group relative aspect-video overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/20 hover:ring-accent/40 transition-all duration-300" href="#book">
           <div class="absolute inset-0 flex items-center justify-center text-white/70">Video Placeholder</div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
           <span class="absolute bottom-3 left-3 rounded-lg bg-white/10 px-2 py-1 text-xs text-white/90 ring-1 ring-white/15">Estate</span>
         </a>
+
         <a class="group relative aspect-video overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/20 hover:ring-accent/40 transition-all duration-300" href="#book">
           <div class="absolute inset-0 flex items-center justify-center text-white/70">Video Placeholder</div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
